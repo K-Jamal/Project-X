@@ -25,3 +25,26 @@ Type het commando ``composer install``
 Type het commando ``symfony server:start``
 
 ### Happy Hunting!
+
+
+## Om te openen
+
+Open Xampp
+
+Zet Apache 2 en MySql aan
+
+Klik bij MySql op admin
+
+Maak een nieuwe database aan met de naam herdb
+
+Importeer nu de sql van de /asset/backup directory
+
+De database word nu gevuld met al de informatie
+
+Open de terminal en type het commando ``` composer install```
+
+Type nu het commando ```symfony serve```
+
+Het project staat nu klaar
+
+
