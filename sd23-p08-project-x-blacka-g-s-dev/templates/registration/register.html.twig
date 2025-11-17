@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block body %}
+
+
+
+    <div class="container-fluid my-5">
+
+
+
+    <div class="container-fluid">
+
+        <div class="row h-100">
+            <div class="col h-100"></div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h1>Register</h1>
+
+                {{ form_errors(registrationForm) }}
+
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.firstName) }}
+                {{ form_row(registrationForm.lastName) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+                <div >Al een account? <a href="{{ path('app_login') }}">Login</a></div>
+                <button type="submit" class="btn btn-dark float-end">Register</button>
+                {{ form_end(registrationForm) }}
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+{#    <div class="container-fluid">#}
+{#        <div class="row">#}
+{#            <div class="col-12 p-0">#}
+{#                <footer class="bg-danger-subtle text-light text-center fs-1 py-3 position-fixed bottom-0 start-0 w-100" style="z-index: 1030;">#}
+{#                    Blacka'gs#}
+{#                </footer>#}
+{#            </div>#}
+{#        </div>#}
+{#      </div>#}
+    </div>
+{% endblock %}

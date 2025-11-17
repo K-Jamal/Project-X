@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product Details{% endblock %}
+
+{% block body %}
+    <h1>Admin details</h1>
+
+
+
+{#                <tr>#}
+{#                    <th scope="row">{{ products.id }}</th>#}
+{#                    <td>{{ products.name }}</td>#}
+{#                    <td>{{ products.price }}</td>#}
+{#                    <td><a href="{{ path('app_admin_details', {'id':products.id}) }}" class="btn btn-outline-primary">See Details</a></td>#}
+{#                    <td><a href="{{ path('app_admin_update', {'id':products.id}) }}">UPDATE</a> <> DELETE</td>#}
+{#                </tr>#}
+    <div class="container-lg">
+        <div class="card">
+            <div class="card-title h3">{{ Products.name }}</div>
+            <div>€{{ Products.price }}</div>
+            <div> <img src="{{ asset(Products.image)}}" class="img-fluid" alt="Product IMAGE" ></div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductsController!{% endblock %}
+
+{% block body %}
+
+
+
+    <h3>Products</h3>
+
+    {% for products in products %}
+        <div class="card">
+            <div class="card-title h2">{{ products.name }}</div>
+            <img src="{{ asset(products.image) }}" alt=""  class="img-fluid" style="max-width: 250px">
+            <div class="price bold h4">€{{ products.price }}</div>
+            <a href="{{ path('app_products_details', {'id':products.id}) }}" class="btn btn-outline-primary">See Details</a>
+
+        </div>
+    {% endfor %}
+
+{% endblock %}

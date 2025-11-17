@@ -1,0 +1,14 @@
+/*<<<<<<< HEAD*/
+/*!*body {*!*/
+/*!*    background-color: skyblue;*!*/
+/*!*}*!*/
+/*=======*/
+/*body {*/
+/*    background-color: white;*/
+/*}*/
+/*>>>>>>> register/login*/
+
+
+.navbar-brand, .nav-link {
+    font-family: 'Playfair Display', serif;
+}

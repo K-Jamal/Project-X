@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+    {% include'pop.html.twig' %}
+
+
+
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-lg-12"><img src="{{ asset("/img/hairbg1.jpg") }}" alt=""  style="width: 100%" height="300px"></div>
+        </div>
+    </div>
+
+    <div class="container-md my-3 py-5">
+        <div class="row">
+        <div class=" text-secondary text-center">
+            {% if app.user %}
+                <h1 class="text-dark">Welkom bij LuLuHairz,
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <i class="bi bi-star text-warning bg-succes"></i>
+
+                    {% endif %}
+                    {{ app.user.firstName }}
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <i class="bi bi-star text-warning bg-succes"></i>
+
+                    {% endif %}
+
+                </h1>
+            {% else %}
+                <h1 class="text-dark"> welkom bij LuLuHairz</h1>
+            {% endif %}
+
+            <p>
+                Bij ons vind je topkwaliteit humanhair- pruiken, bundles en boho blukken. Wij bieden ook unieke en professionele haarservices, zoals vlechten, wigs en bundels zetten en meer...
+                <br>
+                Wil je zelf meer leren over haarverzorging en styling? Ontdek onze exclusieve e-books, boordevol tips en technieken om jouw haar en business naar een hoger niveau te tillen.
+                <br>
+                <br>
+                Shop, boek en leer met LulaHairz Straal op jouw manier!
+            </p>
+        </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-secondary-subtle py-4 text-center">
+        <div class="row">
+
+            {% for category in category %}
+            <div class="col-md-4 text-center">
+            <div class="card bg-secondary-subtle border-0 card">
+                <h5 class="card-title">{{ category.name }}</h5>
+                <img src="{{ asset(category.image) }}" alt=""  class="img-fluid" style="max-width: 400px">
+                <a href="{{ path('app_cat_product', {'id': category.id}) }}" class="stretched-link">bekijk meer producten -></a>
+            </div>
+            </div>
+            {% endfor %}
+{#            <div class="col-md-4 text-center">#}
+
+{#                <div class="card bg-secondary-subtle border-0">#}
+{#                        <img src="{{ asset("/img/saloon1.jpg") }}" alt=""  class="img-fluid" style="max-width: 400px">#}
+{#                        <a href="">bekijk meer producten</a>#}
+{#                </div>#}
+
+{#            </div>#}
+
+{#            <div class="col-md-4 text-center">#}
+
+{#                <div class="card bg-secondary-subtle border-0">#}
+{#                    <img src="{{ asset("/img/saloon1.jpg") }}" alt=""  class="img-fluid " style="max-width: 400px">#}
+{#                    <a href="">bekijk meer producten</a>#}
+{#                </div>#}
+
+{#            </div>#}
+
+{#            <div class="col-md-4 text-center">#}
+
+{#                <div class="card bg-secondary-subtle border-0">#}
+{#                    <img src="{{ asset("/img/saloon1.jpg") }}" alt=""  class="img-fluid" style="max-width: 400px">#}
+{#                    <a href="">bekijk meer producten</a>#}
+{#                </div>#}
+
+{#            </div>#}
+
+        </div>
+    </div>
+
+
+    <div class="container-md py-4">
+        <div class="row">
+            <h1 class="text-center">Bekijk Onze Populaire Producten</h1>
+
+            <div class="col-md-4">
+                <div class="card ">
+                    <img src="{{ asset("/img/bluk.webp") }}" alt=""  class="img-fluid" style="max-width: 400px">
+                    <a href="">bekijk meer producten</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card ">
+                    <img src="{{ asset("/img/bluk.webp") }}" alt=""  class="img-fluid" style="max-width: 400px">
+                    <a href="">bekijk meer producten</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card ">
+                    <img src="{{ asset("/img/bluk.webp") }}" alt=""  class="img-fluid" style="max-width: 400px">
+                    <a href="">bekijk meer producten</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

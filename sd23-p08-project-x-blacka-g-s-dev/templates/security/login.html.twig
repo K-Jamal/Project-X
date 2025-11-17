@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+
+
+    <form method="post" class="my-5">
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+        <div class="container-fluid">
+            <div class="row h-100">
+                <div class="col h-100"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="username">Email</label>
+        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control border border-danger-subtle" autocomplete="email" required autofocus>
+        <label for="password">Password</label>
+        <input type="password" name="_password" id="password" class="form-control border border-danger-subtle" autocomplete="current-password" required>
+
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+
+        {#
+            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+            See https://symfony.com/doc/current/security/remember_me.html
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> Remember me
+                </label>
+            </div>
+        #}
+                    <div class="mt-3" >Druk op <a href="{{ path('app_register') }}">Register</a> als je nog geen account hebt. </div>
+
+        <button class="btn btn-lg btn-dark float-end m-2" type="submit">
+            Sign in
+        </button>
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+
+        </div>
+    </form>
+
+{#    <div class="container-fluid">#}
+{#        <div class="row">#}
+{#            <div class="col-12 p-0">#}
+{#                <footer class="bg-danger-subtle text-light text-center fs-1 py-3 position-fixed bottom-0 start-0 w-100" style="z-index: 1030;">#}
+{#                    Blacka'gs#}
+{#                </footer>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+       
+{% endblock %}

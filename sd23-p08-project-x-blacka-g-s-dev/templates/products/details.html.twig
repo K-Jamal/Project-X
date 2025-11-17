@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product Details{% endblock %}
+
+{% block body %}
+    <h1> details</h1>
+
+
+
+
+    <div class="container-lg">
+        <div class="card">
+            <div class="card-title h3">{{ Products.name }}</div>
+            <div>{{ Products.description }}</div>
+            <div class="h4">€{{ Products.price }}</div>
+            <div> <img src="{{ asset(Products.image)}}" class="img-fluid" alt="Product IMAGE" ></div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
+

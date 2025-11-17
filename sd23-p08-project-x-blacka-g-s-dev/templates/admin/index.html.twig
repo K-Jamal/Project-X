@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+    {% include'pop.html.twig' %}
+    {% if is_granted("ROLE_ADMIN") %}
+<h1>Admin</h1>
+
+   <div class="container-lg ">
+       <h3>USERS</h3>
+       <table class="table">
+           <thead>
+           <tr>
+               <th scope="col">ID</th>
+               <th scope="col">Email</th>
+               <th scope="col">FirstName</th>
+               <th scope="col">Lastname</th>
+               <td>actions</td>
+
+           </tr>
+           </thead>
+           <tbody>
+           {% for users in users %}
+               <tr>
+{#                   {% if user.roles == "ROLE_ADMIN" %}#}
+                   <th scope="row">{{ users.id }}</th>
+                   <td>{{ users.email }}</td>
+                   <td>{{ users.firstName }}</td>
+                   <td>{{ users.lastName }}</td>
+                   <td>
+{#                       <a href="{{ path('app_admin_update_user', {'id':users.id}) }}" class="btn btn-primary">UPDATE</a>#}
+                       <a href="{{ path('app_user_delete', {'id':users.id}) }}" class="btn btn-outline-danger">Delete</a>
+                   </td>
+               </tr>
+           {% endfor %}
+           </tbody>
+       </table>
+
+       <h3>Products</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for products in products %}
+        <tr>
+            <th scope="row">{{ products.id }}</th>
+            <td>{{ products.name }}</td>
+            <td>€{{ products.price }}</td>
+            <td><a href="{{ path('app_admin_details', {'id':products.id}) }}" class="btn btn-outline-primary">See Details</a></td>
+            <td>
+                <a href="{{ path('app_admin_update', {'id':products.id}) }}" class="btn btn-primary">UPDATE</a>
+                <a href="{{ path('app_product_delete', {'id':products.id}) }}" class="btn btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+       <a href="/admin/create_product" class="btn btn-success d-flex justify-content-center">Create Product</a>
+
+       <h3>Category</h3>
+       <table class="table">
+           <thead>
+           <tr>
+               <th scope="col">ID</th>
+               <th scope="col">Category Name</th>
+               <th scope="col">Image</th>
+               <th scope="col">Actions</th>
+
+           </tr>
+           </thead>
+           <tbody>
+           {% for categories in categories %}
+               <tr>
+                   <th scope="row">{{ categories.id }}</th>
+                   <td>{{ categories.name }}</td>
+                   <td>{{ categories.image }}</td>
+                   <td>
+                       <a href="{{ path('app_admin_update_cat', {'id':categories.id}) }}" class="btn btn-primary">UPDATE</a>
+                       <a href="{{ path('app_category_delete', {'id':categories.id}) }}" class="btn btn-outline-danger">Delete</a>
+                   </td>
+               </tr>
+           {% endfor %}
+           </tbody>
+       </table>
+       <a href="/admin/create_category" class="btn btn-success d-flex justify-content-center">Create Category</a>
+
+   </div>
+
+    {% else %}
+        <h1>You're not an Admin</h1>
+
+    {% endif %}
+
+{% endblock %}
